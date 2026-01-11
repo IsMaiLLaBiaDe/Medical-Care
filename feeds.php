@@ -1,36 +1,9 @@
 <?php
 
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    
-    $mysqli = require __DIR__ . "/documents/database.php";
-    
-    $sql = "SELECT * FROM patients
-            WHERE id = {$_SESSION["user_id"]}";
-            
-    $result = $mysqli->query($sql);
-    
-    $user = $result->fetch_assoc();
-}
-
-
-// if (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'patients') {
-  // Display the admin.php page
-
-// } else {
-  // Redirect the user to the login page
-  // header('Location: login.php');
-// }
-
 
 ?>
-
-
 <html>	
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" href="https://www.wikipedia.org/static/favicon/wikipedia.ico">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <title>Medical - Care</title>
@@ -67,8 +40,8 @@ if (isset($_SESSION["user_id"])) {
 				"main  main main aside"
 				"footer footer footer footer";
 				/*grid-template-columns: 1fr 1fr 1fr 1fr ;*/
-				grid-template-rows: auto auto  auto auto;
-				grid-template-columns: 1fr 1fr 1fr 1fr  ;
+				grid-template-rows: auto 1fr  1fr auto;
+				grid-template-columns: 1fr 1fr  ;
 				min-height: 100vh;
 				
 			}
@@ -88,8 +61,7 @@ if (isset($_SESSION["user_id"])) {
 				}
 		.main {
 				grid-area: main; 
-				background: #414141;
-				color:white;
+				background:grey;
 				}
 		.sidebar {
 				grid-area: sidebar; 
@@ -98,7 +70,7 @@ if (isset($_SESSION["user_id"])) {
 				}
 		.footer {
 				grid-area: footer; 
-				background: green;
+				background:grey;
 				}
 				/* Basic Setup */
 
@@ -183,11 +155,6 @@ if (isset($_SESSION["user_id"])) {
   opacity: 0.6;
 }
 
-a {
-  color: rgb(0, 0, 0);
-}
-
-
 .active,
 .demo:hover {
   opacity: 1;
@@ -209,37 +176,7 @@ a {
 
 /* ... other styling for links, text, and icons ... */
 		
-
-.float-whatsapp {
-    /* Fixed positioning relative to the viewport */
-    position: fixed;
-    /* Position on the bottom-left */
-    bottom: 40px; 
-    right: 40px; 
-    
-    /* Styling */
-    width: 60px;
-    height: 60px;
-    background-color: #25d366; /* WhatsApp Green */
-    color: #FFF;
-    border-radius: 50px; /* Makes it a circle */
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100; /* Ensures it floats above other content */
-    text-decoration: none; /* Removes underline from link */
-}
-
-.my-float {
-    /* Align the icon vertically */
-    margin-top: 16px; 
-}
-
-/* Optional: Hover effect */
-.float-whatsapp:hover {
-    background-color: #128C7E; /* Slightly darker green on hover */
-}
-
+		
 	</style>
 	<body>
 			<div class="dashboard"> 
@@ -252,36 +189,30 @@ a {
 
  <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Medical-Care</a>
+    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#Pre-visit">Pre-visit</a>
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#Urgent">Urgent</a>
+          <a class="nav-link" href="#">Features</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#Laboratory">Laboratory</a>
+          <a class="nav-link" href="#">Pricing</a>
         </li>
-		  <li class="nav-item">
-          <a class="nav-link" href="#Pharmacy">Pharmacy</a>
-        </li>
-		
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Users
+            Dropdown link
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="login.php">Login</a></li>
-            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-            <li><a class="dropdown-item" href="register.php">Register</a></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-		 
-      </form>
         </li>
       </ul>
     </div>
@@ -293,7 +224,7 @@ a {
 			<div class="slider">
 			
 			
-			<div id="carouselExampleDark" class="carousel carousel-white slide">
+			<div id="carouselExampleDark" class="carousel carousel-dark slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -397,175 +328,8 @@ a {
 -->
 
 			</div>
-			<div class="main"> ads 
-			<div class="container my-5">
-  <div class="p-4 border rounded shadow-sm">
-    <div  id="Pre-visit"  class="row align-items-center mb-5">
-      
-      <div  class="col-md-6">
-        <img 
-          src="assets/1.jpg" 
-          class="img-fluid rounded shadow" 
-          alt="Descriptive image for first paragraph"
-        >
-      </div>
-      
-      <div class="col-md-6">
-        <h3><a href="pre-visit/pre-visit.php">Pre-visit</a></h3>
-        <p>This is the first row. The image is placed in the first column (`col-md-6`), and the descriptive text is placed in the second column, sitting right next to the image. We use `col-md-6` to ensure they each take up half the width on medium screens and larger.</p>
-        <p class="text-muted">Total columns used in this row: 12/12</p>
-      </div>
-    </div>
-    
-    <hr class="my-4">
-    
-    <div  id="Urgent"  class="row align-items-center">
-      
-      <div class="col-md-6 order-md-0">
-        <h3><a href="pre-visit/urgence.php">Urgent</a></h3>
-        <p>This is the second row, where the positions are swapped. The text is now on the left, and the image is on the right.</p>
-        <p>We accomplished this using the **`order-md-0`** class on this text block and the **`order-md-1`** class on the image block. This utility allows you to change the visual display order without changing the source HTML order, which can be great for accessibility.</p>
-      </div>
-      
-      <div class="col-md-6 order-md-1">
-        <img 
-          src="assets/2.jpg" 
-          class="img-fluid rounded shadow" 
-          alt="Descriptive image for second paragraph"
-        >
-      </div>
-      
-    </div>
-    
-  </div>
-
-  <div class="p-4 border rounded shadow-sm">
-    <div  id="Laboratory"  class="row align-items-center mb-5">
-      
-      <div  class="col-md-6">
-        <img 
-          src="assets/1.jpg" 
-          class="img-fluid rounded shadow" 
-          alt="Descriptive image for first paragraph"
-        >
-      </div>
-      
-      <div class="col-md-6">
-        <h3><a href="pre-visit/laboratory">Laboratory</a></h3>
-        <p>This is the first row. The image is placed in the first column (`col-md-6`), and the descriptive text is placed in the second column, sitting right next to the image. We use `col-md-6` to ensure they each take up half the width on medium screens and larger.</p>
-        <p class="text-muted">Total columns used in this row: 12/12</p>
-      </div>
-    </div>
-    
-    <hr class="my-4">
-    
-    <div  id="Pharmacy"  class="row align-items-center">
-      
-      <div class="col-md-6 order-md-0">
-        <h3><a href="pharmacy">Pharmacy</a></h3>
-        <p>This is the second row, where the positions are swapped. The text is now on the left, and the image is on the right.</p>
-        <p>We accomplished this using the **`order-md-0`** class on this text block and the **`order-md-1`** class on the image block. This utility allows you to change the visual display order without changing the source HTML order, which can be great for accessibility.</p>
-      </div>
-      
-      <div class="col-md-6 order-md-1">
-        <img 
-          src="assets/2.jpg" 
-          class="img-fluid rounded shadow" 
-          alt="Descriptive image for second paragraph"
-        >
-      </div>
-      
-    </div>
-    
-  </div>
-</div>
-			All Public  Fncts
-			<!--<div id="Pre-visit"  class="pre-visit"><img  width="100%" height="25%" src="assets/1.jpg"></div>
-			<div id="Urgent"  class="urgent"><img  width="100%" height="25%" src="assets/2.jpg"></div>
-			<div id="Laboratory" class="laboratory"><img  width="100%" height="25%" src="assets/3.jpg"></div>
-			<div id="Pharmacy" class="pharmacy"><img  width="100%" height="25%" src="assets/4.jpg"></div>-->
-			
-			
-			
-			
-			</div>
-			<div class="aside"> Feeds 
-			<div>
-    
-    <h1>Home</h1>
-    
-    <?php if (isset($user)): ?>
-        
-        <p>Hello <?= htmlspecialchars($user["fname"]) ?> </p>
-        
-        <p><a href="logout.php">Log out</a></p>
-        
-    <?php else: ?>
-        
-        <p><a href="login.php">Log in</a> or <a href="patients/index.html">sign up</a></p>
-		
-
-
-        
-    <?php endif; ?>
-    
-</div>
-				<?php
-// Database connection parameters (replace with your actual credentials)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "resident-evil";
-$table_name = "alertes"; // Replace with your table name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// SQL query to fetch the last 10 submitted records
-$sql = "SELECT id , name FROM " . $table_name . " ORDER BY id DESC LIMIT 10";
-// Note: If you have a 'submission_time' column, use it in ORDER BY instead of 'id'
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Output data in a simple HTML table
-    echo "<center><h2>Last 10 Submissions</h2>";
-    echo "<table border='0'>";
-    echo "<tr><!--<th>ID</th><th>Name</th><th>Email</th><th>Time</th>--></tr>";
-    
-    // Output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row["id"] . "</td>";
-        echo "<td>" . $row["name"] . "</td>";
-        // echo "<td>" . $row["email"] . "</td>";
-        // echo "<td>" . $row["submission_time"] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-} else {
-    echo "0 results";
-}
-
-$conn->close();
-?>
-			
-			
-			
-			<div class=""><a href="">Announcement</a></div>
-			<div class=""><a href="">Quotes</a><?php// public tells ?></div>
-			<div class=""><a href="">Click Here To</a><?php// public pages ?></div>
-			<div class=""><a href="">Read</a><?php// public post ?></div>
-			
-			</div>
-			
-
-
+			<div class="main"> HELLO </div>
+			<div class="aside"> HELLO </div>
 			<div class="footer"> 
 
 <footer>
@@ -575,36 +339,36 @@ $conn->close();
             <h3>[Your Company Name]</h3>
             <p>A brief, one-sentence description of your company or mission statement.</p>
             <div class="contact">
-                <span><i class="fa fa-phone"></i> +1 234 567 8900</span>
-                <span><i class="fa fa-envelope"></i> info@[yourdomain].com</span>
+                <span><i class="fas fa-phone"></i> +1 234 567 8900</span>
+                <span><i class="fas fa-envelope"></i> info@[yourdomain].com</span>
             </div>
         </div>
 
         <div class="footer-section links">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="about/">About Us</a></li>
-                <li><a href="about/services">Services</a></li>
-                <li><a href="about/contact">Contact</a></li>
-                <li><a href="about/blog">Blog</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/blog">Blog</a></li>
             </ul>
         </div>
 
         <div class="footer-section legal">
             <h3>Legal</h3>
             <ul>
-                <li><a href="privacy">Privacy Policy</a></li>
-                <li><a href="terms">Terms of Service</a></li>
-                <li><a href="sitemap">Sitemap</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms of Service</a></li>
+                <li><a href="/sitemap">Sitemap</a></li>
             </ul>
         </div>
 
         <div class="footer-section social">
             <h3>Follow Us</h3>
             <div class="social-icons">
-                <a href="[Link to Facebook]" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                <a href="[Link to Twitter]" target="_blank"><i class="fa fa-twitter"></i></a>
-                <a href="[Link to Instagram]" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="[Link to Facebook]" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="[Link to Twitter]" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="[Link to Instagram]" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
@@ -613,8 +377,8 @@ $conn->close();
     <div class="footer-bottom">
         &copy; 2025 [Your Company Name] | All Rights Reserved.
     </div>
-
-
+	
+	
 </footer>
 
 			</div>
@@ -651,11 +415,6 @@ function showSlides(n) {
 }
 </script>-->
 
-<a href="https://wa.me/+212612345678" 
-   class="float-whatsapp" 
-   target="_blank">
-    <i class="fa fa-whatsapp my-float"></i>
-</a>
 	</body>
 
 	
